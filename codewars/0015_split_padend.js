@@ -22,3 +22,8 @@ function solution(str){
 }
 
 console.log(solution("abcdef"));
+
+//---------BETTER
+function solution(s){
+  return (s+"_").match(/.{2}/g)||[]
+}
