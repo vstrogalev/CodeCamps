@@ -40,12 +40,12 @@ The provided function is set to resolve after 100ms. However, the time limit is 
  * @return {Function}
  */
 var timeLimit = function(fn, t) {
-    
   return async function(...args) {
-    return await new Promise((res, rej) => {
-      setTimeout(rej('Time Limit Exceeded'), t)
-      return fn(...args);
+    const fnRes = fn(...args);
+    const pr = new Promise((res, rej) => {
+      setTimeout(() => rej('Time Limit Exceeded'), t)
     })
+    return Promise.race([fnRes, pr])
   }
 };
 
