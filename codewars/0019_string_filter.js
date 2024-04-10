@@ -12,3 +12,8 @@ If no occurrences can be found, a count of 0 should be returned.
 function strCount(str, letter){  
   return Array.from(str).filter(c => c == letter).length
 }
+
+//-------BETTER
+function strCount(str, letter){  
+  return str.split(letter).length-1
+}
