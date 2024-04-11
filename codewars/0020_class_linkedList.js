@@ -20,15 +20,12 @@ function swapPairs(head) {
     n2.next = n1;
     n1.next = n;
     if (!prevNode.node) prevNode.node = n1
-    else prevNode.node
+    else {
+      prevNode.node.next = n2;
+      prevNode.node = n1;
+    }
     return prevNode
   }
-
-// 0 - 1 - 2 - 3 - 4 - 5 - 6
-
-// 1 - 0 - 2 - 3 - 4 - 5 - 6
-
-// 1 - 0 - 3 - 2 - 4 - 5 - 6
 
   if (head === null || head === null || head.next === null) return head
 
@@ -76,3 +73,4 @@ do {
   console.log(node.value)
   node = node.next;
 } while (node)
+
