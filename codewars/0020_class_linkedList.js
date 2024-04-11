@@ -65,7 +65,7 @@ do {
   node = node.next;
 } while (node)
 
-const newHead = swapPairs(l1);
+const newHead = swapPairs2(l1);
 console.log(newHead)
 node = newHead;
 
@@ -73,4 +73,13 @@ do {
   console.log(node.value)
   node = node.next;
 } while (node)
+
+//------------BETTER
+function swapPairs2(head) {
+  if (!head || !head.next) return head;
+  const next = head.next;
+  head.next = swapPairs2(next.next);
+  next.next = head;
+  return next;
+}
 
